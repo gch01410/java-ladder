@@ -1,5 +1,6 @@
 package ladder.domain;
 
+import ladder.strategy.MockLadderBuildStrategy;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

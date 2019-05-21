@@ -1,5 +1,6 @@
 package ladder;
 
+import ladder.strategy.RandomValueBuildStrategy;
 import ladder.domain.*;
 import ladder.view.InputView;
 import ladder.view.OutputView;
@@ -17,7 +18,7 @@ public class Application {
         LadderBuilder ladderBuilder = new LadderBuilder(new RandomValueBuildStrategy());
         Ladder ladder = ladderBuilder.build(height, players.getNumberOfPlayers());
 
-        printLadder(players, ladder, items);
+        OutputView.printLadderGame(players, ladder, items);
 
         LadderResult ladderResult = ladder.play();
         List<String> result = ladderResult.match(items);
@@ -28,11 +29,5 @@ public class Application {
             participant = InputView.inputParticipant(players);
             OutputView.printResult(players, result, participant);
         } while (!participant.equals(ALL_PARTICIPANT));
-    }
-
-    private static void printLadder(Players players, Ladder ladder, Items items) {
-        OutputView.printNames(players);
-        OutputView.printLadder(ladder);
-        OutputView.printItems(items);
     }
 }

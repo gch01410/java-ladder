@@ -1,4 +1,4 @@
-package ladder.domain;
+package ladder.strategy;
 
 public interface LadderBuildingStrategy {
     public boolean generate();

@@ -10,7 +10,13 @@ public class OutputView {
     private static final String LADDER_LEG = "|";
     private static final String ALL_PARTICIPANTS = "all";
 
-    public static void printNames(Players players) {
+    public static void printLadderGame(Players players, Ladder ladder, Items items) {
+        OutputView.printNames(players);
+        OutputView.printLadder(ladder);
+        OutputView.printItems(items);
+    }
+
+    private static void printNames(Players players) {
         System.out.println("실행 결과\n");
 
         for (Player player : players.getPlayers()) {
@@ -20,7 +26,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printLadder(Ladder ladder) {
+    private static void printLadder(Ladder ladder) {
         int height = ladder.getHeight();
         int numberOfPeople = ladder.getNumberOfPeople();
 
@@ -53,7 +59,7 @@ public class OutputView {
         }
     }
 
-    public static void printItems(Items items) {
+    private static void printItems(Items items) {
         for (String item : items.getItems()) {
             System.out.printf("%6s", item);
         }
